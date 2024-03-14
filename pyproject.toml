@@ -8,7 +8,10 @@ version = "0.1.0"
 description = "A Simple Licence File Creater for Python Projects"
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.8"
-dependencies = []
+dependencies = [
+  "pyvutils",
+  "ihandler"
+]
 readme = "README.md"
 license = {file = "LICENCE"}
 keywords = ["pylicencer", "pylicencer-cli"]

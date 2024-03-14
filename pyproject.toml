@@ -26,9 +26,8 @@ classifiers = [
   "Natural Language :: English"
 ]
 
-#[project.urls]
-# Homepage = ""
-# Documentation = ""
-# Repository = ""
-# Issues = ""
-# Changelog = ""
+[project.scripts]
+pylicencer-cli = "pylicencer.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/vfm-sb/PyLicencer-CLI"

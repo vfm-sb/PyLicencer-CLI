@@ -9,19 +9,18 @@ description = "A Simple Licence File Creater for Python Projects"
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.8"
 dependencies = [
-  "pyvutils",
-  "ihandler"
+  "pyvutils==0.1.4",
+  "ihandler==0.1.3"
 ]
 readme = "README.md"
 license = {file = "LICENCE"}
 keywords = ["pylicencer", "pylicencer-cli"]
 classifiers = [
-  "Development Status :: 1 - Planning",
-  "Development Status :: 2 - Pre-Alpha",
+  "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "Topic :: Software Development",
   "Topic :: Software Development :: Libraries :: Python Modules",
-  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3.11",
   "Natural Language :: English"
 ]

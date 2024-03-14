@@ -1,3 +1,4 @@
+import os
 import pyvutils
 from ihandler import ihandler
 from .licences import LICENCES
@@ -12,25 +13,25 @@ def main() -> None:
     print("Choose a Licence:")
     print_licences(LICENCES)
     licence_name = ihandler(input_type="numeric-choice", prompt=">>> ", choices=list(LICENCES.keys()))
-    licence = pyvutils.get_file_content(f"{licence_name}.txt", relative_path="data")
+    licence_content = pyvutils.get_file_content(f"{licence_name}.txt", relative_path="data")
 
-    if "program" in licence:
+    if "[program]" in licence_content:
         program = ihandler(input_type="strict-string", prompt="Program Name:\n>>> ")
-        licence = licence.replace("[program]", program)
-    if "[owner]" in licence:
+        licence_content = licence_content.replace("[program]", program)
+    if "[owner]" in licence_content:
         owner = ihandler(input_type="strict-string", prompt="Copyright Owner:\n>>> ")
-        licence = licence.replace("[owner]", owner)
-    if "[description]" in licence:
+        licence_content = licence_content.replace("[owner]", owner)
+    if "[description]" in licence_content:
         description = ihandler(input_type="strict-string", prompt="Description:\n>>> ")
-        licence = licence.replace("[description]", description)
-    if "[year]" in licence:
+        licence_content = licence_content.replace("[description]", description)
+    if "[year]" in licence_content:
         year = pyvutils.current_year_timestamp()
-        licence = licence.replace("[year]", year)
+        licence_content = licence_content.replace("[year]", year)
 
     absolute_project_path = ihandler(input_type="strict-string", prompt="Project Root Path:\n>>> ")
-    file_path = f"{absolute_project_path}/LICENCE"
+    file_path = os.path.join(absolute_project_path, "LICENCE")
     with open(file_path, "w", encoding="UTF-8") as licence_file:
-        licence_file.write(licence)
+        licence_file.write(licence_content)
 
 
 if __name__ == "__main__":

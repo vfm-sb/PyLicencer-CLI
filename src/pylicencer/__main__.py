@@ -1,7 +1,12 @@
 import os
+from pathlib import Path
 import pyvutils
 from ihandler import ihandler
-from .licences import LICENCES
+from pylicencer.licences import LICENCES
+
+
+PROJECT_ROOT_PATH = Path(__file__).parent.parent.parent
+DATA_PATH: Path = PROJECT_ROOT_PATH / "data"
 
 
 def print_licences(licences: dict) -> None:
@@ -13,7 +18,9 @@ def main() -> None:
     print("Choose a Licence:")
     print_licences(LICENCES)
     licence_name = ihandler(input_type="numeric-choice", prompt=">>> ", choices=list(LICENCES.keys()))
-    licence_content = pyvutils.get_file_content(f"{licence_name}.txt", relative_path="data")
+    licence_content_path = DATA_PATH / f"{licence_name}.txt"
+    with open(licence_content_path, "r", encoding="UTF-8") as file:
+        licence_content = file.read()
 
     if "[program]" in licence_content:
         program = ihandler(input_type="strict-string", prompt="Program Name:\n>>> ")

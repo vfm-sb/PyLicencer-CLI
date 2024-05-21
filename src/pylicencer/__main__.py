@@ -15,8 +15,12 @@ def print_licences(licences: dict) -> None:
 
 
 def main() -> None:
+    os.system("clear")
+    print("PyLicencer-CLI")
+    print(len("PyLicencer-CLI") * "‾")
     print("Choose a Licence:")
     print_licences(LICENCES)
+    print()
     licence_name = ihandler(input_type="numeric-choice", prompt=">>> ", choices=list(LICENCES.keys()))
     licence_content_path = DATA_PATH / f"{licence_name}.txt"
     with open(licence_content_path, "r", encoding="UTF-8") as file:

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pylicencer-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Simple Licence File Creater for Python Projects"
 authors = [{name = "vfm-sb", email = "vfm-sb@proton.me"}]
 requires-python = ">=3.11.8"

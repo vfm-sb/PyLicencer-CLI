@@ -36,7 +36,7 @@ def main() -> None:
         description = ihandler(input_type="strict-string", prompt="Description:\n>>> ")
         licence_content = licence_content.replace("[description]", description)
     if "[year]" in licence_content:
-        year = pyvutils.current_year_timestamp()
+        year = pyvutils.current_year_stamp()
         licence_content = licence_content.replace("[year]", year)
 
     absolute_project_path = ihandler(input_type="strict-string", prompt="Project Root Path:\n>>> ")
